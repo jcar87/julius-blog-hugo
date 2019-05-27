@@ -1,4 +1,4 @@
-baseURL = "https://jcar87.github.io/julius-blog-static/"
+baseURL = "http://julius.es/"
 languageCode = "en-us"
 title = "Julius's notes"
 theme = "hello-friend-ng"
@@ -22,7 +22,6 @@ theme = "hello-friend-ng"
   defaultTheme = "dark"
   [params.logo]
     logoText = "julius | blog"
-    logoHomeLink = "/posts"
 
   # Social icons
   [[params.social]]
