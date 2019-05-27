@@ -1,4 +1,10 @@
 # Starter pipeline
+- task: HugoTask@1
+  inputs:
+    source: '$(Build.SourcesDirectory)'
+    destination: '$(Build.SourcesDirectory)\public'
+    extendedVersion: true
+    baseURL: 'https://julius.es'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
