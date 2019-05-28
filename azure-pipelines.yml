@@ -6,17 +6,23 @@ trigger:
 - master
 
 pool:
-  vmImage: 'vs2017-win2016'
-
+  vmImage: 'windows-2019'
 
 steps:
-# Starter pipeline
+- checkout: self
+  displayName: 'Checkout repository'
+
 - task: HugoTask@1
+  displayName: 'Generate Hugo Site'
   inputs:
-    source: '$(Build.SourcesDirectory)'
-    destination: '$(Build.SourcesDirectory)\public'
+    destination: '$(Build.ArtifactStagingDirectory)'
     extendedVersion: true
-    baseURL: 'https://julius.es'
+
+- task: PublishPipelineArtifact@0
+  displayName: 'Publish Hugo site as artifact'
+  inputs:
+    artifactName: 'hugo-site'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
 
 # - script: echo Hello, world!
 #   displayName: 'Run a one-line script'
